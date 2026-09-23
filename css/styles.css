@@ -1,0 +1,14 @@
+:root{--c:#00acee;--cd:#0086bb;--ink:#0b1f2e}
+body{font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;background:#f2f7fa}
+.topbar{background:#0a0a0a;color:#fff;text-align:center;font-weight:700;font-size:.9rem;padding:.4rem}
+.navbar{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.brand{font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:.5rem;color:var(--ink)!important}
+.btn-c{background:var(--c);border-color:var(--c);color:#fff;font-weight:600}
+.btn-c:hover,.btn-c:disabled{background:var(--cd);border-color:var(--cd);color:#fff}
+.hero{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;background:url(../img/condominio.svg) center/cover no-repeat}
+.card-glass{background:rgba(255,255,255,.94);border-radius:24px;padding:2.5rem 2rem;max-width:480px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.card-glass h1{font-weight:800;font-size:clamp(1.6rem,5vw,2.2rem)}
+.navbar .nav-link{background:none;border:0;font-weight:600}
+.navbar .nav-link.active{color:var(--c)!important}
+.uicon{color:var(--c)}
+th{white-space:nowrap;background:var(--c)!important;color:#fff!important}
