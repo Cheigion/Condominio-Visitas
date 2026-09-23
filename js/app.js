@@ -52,7 +52,7 @@ $('f').addEventListener('submit', async e => {
 });
 
 // Listado
-const COLS = ['Rut', 'Nombre', 'Apellidos', 'Patente', 'Departamento', 'Torre', 'Observacion', 'Fecha', 'Hora', 'NombreUsuario', 'RutUsuario'];
+const COLS = ['Rut', 'Nombre', 'Apellidos', 'Patente', 'Departamento', 'Torre', 'Observacion', 'Fecha', 'Hora'];
 let rows = [];
 function render() {
   const q = $('q').value.toLowerCase();
