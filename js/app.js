@@ -27,11 +27,21 @@ const validate = () => [
   chk($('apellidos'), NAME.test($('apellidos').value.trim())), chk($('pat'), !$('veh').checked || PAT.test($('pat').value)),
   chk($('depto'), !!$('depto').value), chk($('torre'), !!$('torre').value)].every(Boolean);
 const alertMsg = (t, m) => $('msg').innerHTML = `<div class="alert alert-${t} py-2">${m}</div>`;
+// Aviso en pantalla (modal) con botón Aceptar
+function notify(ok, text) {
+  $('mi').className = 'bi ' + (ok ? 'bi-check-circle-fill text-success' : 'bi-x-circle-fill text-danger');
+  $('mt').className = 'fw-bold mt-2 ' + (ok ? 'text-success' : 'text-danger');
+  $('mt').textContent = ok ? '¡Visita registrada!' : 'Error en el servidor';
+  $('mp').textContent = text;
+  $('mb').className = 'btn btn-lg px-5 mx-auto ' + (ok ? 'btn-success' : 'btn-danger');
+  bootstrap.Modal.getOrCreateInstance($('mdl')).show();
+}
+const ERR = 'Ocurrió un error en el servidor. Comuníquese con el área de informática para más información.';
 
 $('f').addEventListener('submit', async e => {
   e.preventDefault();
   if (!validate()) return alertMsg('warning', 'Revise los campos marcados en rojo.');
-  if (CONFIG.MAKE_WEBHOOK_URL.startsWith('PEGAR')) return alertMsg('danger', 'Falta configurar MAKE_WEBHOOK_URL en js/config.js');
+  if (CONFIG.MAKE_WEBHOOK_URL.startsWith('PEGAR')) { console.error('Falta configurar MAKE_WEBHOOK_URL en js/config.js'); return notify(false, ERR); }
   const n = new Date(), tz = { timeZone: CONFIG.TIMEZONE };
   const d = {
     Rut: $('rut').value, Nombre: $('nombre').value.trim(), Apellidos: $('apellidos').value.trim(),
@@ -44,10 +54,10 @@ $('f').addEventListener('submit', async e => {
   $('btn').disabled = true;
   try {
     await fetch(CONFIG.MAKE_WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(d) });
-    alertMsg('success', '<i class="bi bi-check-circle"></i> Visita registrada correctamente.');
+    $('msg').innerHTML = ''; notify(true, 'Visita registrada exitosamente.');
     $('f').reset(); togglePat(); $('cnt').textContent = 0;
     $('f').querySelectorAll('.is-valid,.is-invalid').forEach(x => x.classList.remove('is-valid', 'is-invalid'));
-  } catch (x) { alertMsg('danger', 'No se pudo registrar. Revise su conexión e intente nuevamente.'); }
+  } catch (x) { console.error(x); notify(false, ERR); }
   $('btn').disabled = false;
 });
 
