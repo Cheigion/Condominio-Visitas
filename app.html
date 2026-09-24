@@ -19,13 +19,13 @@
 <form id="f" novalidate class="row g-3">
 <div class="col-md-6"><label class="form-label" for="rut">RUT *</label><input id="rut" class="form-control" maxlength="12" placeholder="Rut" autocomplete="off"><div class="invalid-feedback">RUT no válido</div></div>
 <div class="col-md-6"></div>
-<div class="col-md-6"><label class="form-label" for="nombre">Nombre *</label><input id="nombre" class="form-control" autocomplete="off"><div class="invalid-feedback">Solo letras</div></div>
-<div class="col-md-6"><label class="form-label" for="apellidos">Apellidos *</label><input id="apellidos" class="form-control" autocomplete="off"><div class="invalid-feedback">Solo letras</div></div>
+<div class="col-md-6"><label class="form-label" for="nombre">Nombre *</label><input id="nombre"  placeholder="Nombre" class="form-control" autocomplete="off"><div class="invalid-feedback">Solo letras</div></div>
+<div class="col-md-6"><label class="form-label" for="apellidos">Apellidos *</label><input id="apellidos" placeholder="Apellido" class="form-control" autocomplete="off"><div class="invalid-feedback">Solo letras</div></div>
 <div class="col-12"><div class="form-check"><input type="checkbox" id="veh" class="form-check-input"><label class="form-check-label" for="veh">Viene en vehículo</label></div></div>
 <div class="col-md-6 d-none" id="patw"><label class="form-label" for="pat">Patente *</label><input id="pat" class="form-control text-uppercase" maxlength="7" placeholder="ABCD12" autocomplete="off"><div class="invalid-feedback">Patente obligatoria (5 a 7 caracteres)</div></div>
 <div class="col-md-6"><label class="form-label" for="depto">Departamento *</label><select id="depto" class="form-select"><option value="">Seleccione…</option></select><div class="invalid-feedback">Seleccione un departamento</div></div>
 <div class="col-md-6"><label class="form-label" for="torre">Torre *</label><select id="torre" class="form-select"><option value="">Seleccione…</option></select><div class="invalid-feedback">Seleccione una torre</div></div>
-<div class="col-12"><label class="form-label" for="obs">Observación</label><textarea id="obs" class="form-control" rows="5" maxlength="300"></textarea><div class="form-text text-end"><span id="cnt">0</span>/300</div></div>
+<div class="col-12"><label class="form-label" for="obs">Observación</label><textarea id="obs"  placeholder="Observación" class="form-control" rows="5" maxlength="300"></textarea><div class="form-text text-end"><span id="cnt">0</span>/300</div></div>
 <div class="col-12"><button id="btn" class="btn btn-c btn-lg w-100">Registrar visita</button></div></form>
 <div id="msg" class="mt-3"></div></div></div></section>
 <section id="sec-listado" class="container py-4 d-none"><div class="card shadow-sm"><div class="card-body">
